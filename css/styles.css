@@ -173,16 +173,18 @@ hr {
   margin-top: 6%;
 }
 #overlay .img-container img {
-  max-width: 550px;
+  max-width: 500px;
   height: auto;
 }
 #overlay .caption-container p {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3%;
   color: white;
   text-align: center;
   font-family: 'Raleway', sans-serif;
   font-size: 1.2em;
-  padding-right: 25%;
-  padding-top: 25%;
 }
 .hover {
   padding: 3px;
@@ -217,11 +219,13 @@ hr {
   font-size: 1em;
 }
 .questions-container .answer {
-  background-color: #aae8ba;
-  border-bottom: 2px solid mediumseagreen;
-  color: mediumseagreen;
+  background-color: #5eb4ff;
+  border-bottom: 2px solid #0084f7;
+  border-right: 2px solid #0084f7;
+  color: white;
   text-align: center;
   font-size: 1.3em;
+  font-weight: bold;
   padding: 1.5%;
   margin-top: 2px;
   display: none;
@@ -232,7 +236,7 @@ hr {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-bottom: 5%;
+  padding-top: 5%;
 }
 .contact-container img {
   width: 50%;

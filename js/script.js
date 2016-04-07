@@ -5,13 +5,22 @@ document.addEventListener('DOMContentLoaded', function(){
         $(this).addClass('lighten');
     });
     
+  
     //underlining nav links
     $('nav a').each(function(){
        if ($(this).prop('href') == window.location.href) {
          $(this).addClass('active'); 
          $(this).parents('li').addClass('active');
        }
+       if($(this).prop('href') == 'work.html'){
+           console.log('welcome to the contact page');
+       }
     });
+    
+    //clicking nav logo to go home
+    $('#nav-logo').click(function(){
+        window.location.href = "index.html";
+    })
     
     //toggle FAQ answer
     $('.show-more').click(function(){
@@ -59,26 +68,36 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         
     });
+    
     //lightbox for work
     var $overlay = $("<div id='overlay' class='container-fluid'></div");
     var $rowContainer = $("<div class='work-content-container row'></div>");
-    var $imageContainer = $("<div class='img-container col-xs-8'></div>");
+    var $imageContainer = $("<div class='img-container col-xs-12'></div>");
+    //IF WINDOW IS BELOW 900 PX MAKE THE IMAGE AND CAPTION STACK
+    if (window.innerWidth < 900){
+        $imageContainer = $("<div class='img-container col-xs-12'></div>")
+    }
     var $image = $("<img>");
-    var $captionContainer = $("<div class='caption-container col-xs-4'></div>");
+    var $captionContainer = $("<div class='caption-container col-xs-12'></div>");
+    //IF WINDOW IS BELOW 900 PX MAKE THE IMAGE AND CAPTION STACK
+    if (window.innerWidth < 900){
+        $captionContainer = $("<div class='caption-container col-xs-12'></div>")
+    }
     var $caption = $("<p></p>");
     var captions = ["Gaylord Chemical was in need for a website renovation. I helped redesign and populate their new site, with a mobile-first mindset. This large, responsive site is a great improvement from Gaylord Chemical's previous site", "The FBA, or Football Bowl Association, needed a responsive website that was engaging and informative. College football fans needed an online central hub to get all of their bowl game needs from. I helped redesign and populate the FBA's site with this mindset in place.", "These are a few sports wallpapers I have created in the past. Whenever I have spare time, I try to create digital pieces of art to share with friends and family. Go Pack Go.", "Email designed for financial client.", "Email designed for the FBA. This one in particular is geared towards the fans of the college football bowls.", "Email designed for the FBA. This one in particular is geared towards the bowl administrators.", "Logo submitted in online contest for a Black Ops Veteran Union. Named runner-up.", "Logo for a hops-based soda product. Yes, I said a hops-based soda.", "Logo designed for a community journal publisher."]
     var largeImages = ['images/ao_email.jpg', 'images/fba_email.jpg', 'images/fba_email2.jpg']
     
     $imageContainer.append($image)
-    $rowContainer.append($imageContainer);
-    $captionContainer.append($caption);
-    $rowContainer.append($captionContainer);
-    $overlay.append($rowContainer);
-    
-    $("body").append($overlay);
-    
+        $rowContainer.append($imageContainer);
+        $captionContainer.append($caption);
+        $rowContainer.append($captionContainer);
+        $overlay.append($rowContainer);
+        $("body").append($overlay);
+        
     $('.work-container a').click(function(e){
         e.preventDefault();
+        
+        
         console.log('SHOW!');
         var link = $(this).attr('id');
         var linkNum = parseInt(link);
@@ -88,17 +107,22 @@ document.addEventListener('DOMContentLoaded', function(){
             console.log("You've clicked on an email!");
             if(linkNum == 3){
                 $image.attr('src', largeImages[0]);
-                $image.css('max-width', '330px');
+                $image.css('max-width','330px');
             };
             if(linkNum == 4){
                 $image.attr('src', largeImages[1]);
-                $image.css('max-width', '330px');
+                $image.css('max-width','330px');
             }
             if(linkNum == 5){
                 $image.attr('src', largeImages[2]);
-                $image.css('max-width', '330px');
+                $image.css('max-width','330px');
             }
         }else{
+            //checks to see if the img still has the max-width attr from email image
+            if ($image.attr('style')){
+                console.log('there is a max-width');
+                $image.attr('style', '');
+            }
             $image.attr('src', imageLocation);
         }
         

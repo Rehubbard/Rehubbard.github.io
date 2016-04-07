@@ -80,17 +80,26 @@
   .photo-me {
     padding-top: 2%;
   }
+  .twit-head {
+    text-align: center;
+  }
+  .twit-head h2 {
+    font-size: 1.25em;
+  }
   .work-container .work-single {
     margin-bottom: 7%;
   }
+  #overlay {
+    overflow: scroll;
+  }
   #overlay img {
-    margin-top: 20%;
+    margin-top: 15%;
     width: 80%;
     height: auto;
   }
   #overlay p {
     width: 90%;
-    margin-top: 15px;
+    margin-top: 5%;
   }
   .faq-header {
     width: 90%;

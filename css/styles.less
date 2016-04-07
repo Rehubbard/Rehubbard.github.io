@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,200|Arvo|Roboto:400,700);
 
 @PrimaryColor: #5eb4ff;
+@DarkerPrimary: darken(@PrimaryColor, 20%);
 @SecondaryColor: white;
 @TertiaryColor: #7a7a7a;
 
@@ -171,7 +172,6 @@ hr {
        border: solid 2px @PrimaryColor;
        
     }
-   
 }
 
 #twitter-container {
@@ -223,25 +223,24 @@ hr {
     
     .img-container {
         img{
-            max-width: 550px;
+            max-width: 500px;
             height: auto;
         }
     }
     
     .caption-container {
+   
          p {
+            width: 75%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 3%;
             color: white;
             text-align: center;
             font-family: 'Raleway', sans-serif;
             font-size: 1.2em;
-            padding-right: 25%;
-            padding-top: 25%;
-           
         }
     }
-    
-    
-    
 
 }
 
@@ -291,11 +290,14 @@ hr {
     }
     
     .answer{
-        background-color: #aae8ba;
-        border-bottom: 2px solid mediumseagreen;
-        color: mediumseagreen;
+        background-color: @PrimaryColor;
+        border-bottom: 2px solid @DarkerPrimary;
+        border-right: 2px solid @DarkerPrimary;
+        // border-left: 2px solid @PrimaryColor;
+        color: white;
         text-align: center;
         font-size: 1.3em;
+        font-weight: bold;
         padding: 1.5%;
         margin-top: 2px;
         display: none;
@@ -309,7 +311,7 @@ hr {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-bottom: 5%;
+    padding-top: 5%; //give the elements a centering effect
     
     img {
         width: 50%;
