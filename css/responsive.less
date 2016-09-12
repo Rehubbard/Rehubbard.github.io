@@ -1,3 +1,35 @@
+//MIXINS
+.flex-display(@display: flex) {
+	display: ~"-webkit-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: ~"-ms-@{display}"; // IE11
+	display: @display;
+}
+
+.flex-direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+      -ms-flex-direction: @direction;
+          flex-direction: @direction;
+}
+
+.justify-content(@justify: flex-start) {
+  -webkit-justify-content: @justify;
+      -ms-justify-content: @justify;
+          justify-content: @justify;
+}
+
+.align-items(@align: stretch) {
+  -webkit-align-items: @align;
+      -ms-align-items: @align;
+          align-items: @align;
+}
+
+.align-self(@align: auto) {
+  -webkit-align-self: @align;
+      -ms-align-self: @align;
+          align-self: @align;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Raleway:400,200|Arvo|Roboto:400,700);
 
 @PrimaryColor: #5eb4ff;
@@ -11,18 +43,18 @@
 	border-radius:         @radius;
 }
 
-@media (max-width: 900px){ // WHEN SCREEN SIZE IS LESS THAN 900 
+@media (max-width: 900px){ // WHEN SCREEN SIZE IS LESS THAN 900
     nav {
         display: none;
     }
-    
+
     .main-container {
         margin-top: 50px;
     }
-    
-    
+
+
     //START MOBILE NAV !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-   
+
     .mobile-nav {
             display: block;
             top: 0;
@@ -30,32 +62,32 @@
             z-index: 100;
             width: 100%;
             height: 50px;
-            background: -webkit-linear-gradient(rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%), url(../images/texture.jpg) no-repeat;
-            background: -o-linear-gradient(rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%), url(../images/texture.jpg) no-repeat;
-            background: linear-gradient(rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%), url(../images/texture.jpg) no-repeat;
+            background: -webkit-linear-gradient(rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 100%), url(../images/geometric_nav.jpg) no-repeat;
+            background: -o-linear-gradient(rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 100%), url(../images/geometric_nav.jpg) no-repeat;
+            background: linear-gradient(rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 100%), url(../images/geometric_nav.jpg) no-repeat;
             border-bottom: 2px solid @PrimaryColor;
-            
+
             img{
                 width: 40px;
                 height: auto;
                 left: 5px;
                 margin-top: 5px;
             }
-            
+
             .hamburger{
-         
+
                 margin-top: 10px;
                 right: 5px;
                 width: 30px;
             }
     }
-    
+
     #mobile-nav-content {
         display: none;
         position: relative;
         margin-top: 8px;
         left: 0;
-        
+
         ul{
             list-style-type: none;
             padding: 0;
@@ -66,14 +98,14 @@
             text-align: center;
             background-color: @PrimaryColor;
         }
-        
+
         li {
             display: block;
             border-bottom: 1px solid white;
             padding-top: 10px;
             padding-bottom: 10px;
         }
-        
+
         li a {
             display: block;
             text-decoration: none;
@@ -81,113 +113,129 @@
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
         }
-        
+
         li a:active {
             color: lightgray;
         }
     }
     //END MOBILE NAV !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/
-    
+
     //START HOME PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/
-    
+
     .intro-name{
         width: 80%;
     }
-    
+
     .intro-name h2{
         font-size: 3em;
     }
-    
+
     .intro-name h4 {
             font-size: 1.75em;
         }
-    
+
     .main-container p {
         font-size: 1.2em;
     }
-    
+
     .photo-me img{
         width: 225px;
         height: auto;
     }
-    
+
     .photo-me{
         padding-top: 2%;
     }
-    
+
     .twit-head{
         text-align: center;
         h2{
             font-size: 1.25em;
         }
     }
-    
+
     //START WORK PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/
-    
+
     .work-container {
         .work-single{
             margin-bottom: 7%;
         }
     }
-    
+
     #overlay {
         overflow: scroll;
-        
+
         img{
             margin-top: 15%;
             width: 80%;
             height: auto;
         }
-        
+
         p {
             width: 90%;
             margin-top: 5%;
         }
     }
-    
+
     //START FAQ PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/
-    
+
     .faq-header {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        
+
         h2 {
             font-size: 1.25em;
         }
-        
+
         img {
             width: 15%;
             height: auto;
         }
     }
-    
+
     .questions-container {
         .answer {
             font-size: 1em;
             padding: 4%;
         }
-        
+
         .single-question {
             font-size: 1.2em;
         }
     }
-    
+
     .answer p{
         font-size: .8em;
-        
+
     }
-    
-    
+
+
     //START CONTACT PAGE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!/
-    
-    .contact-container{ 
-        margin-bottom: 50px;
-        
+
+    .contact-container {
+				div {
+					.flex-direction(column);
+					padding: 2% 0;
+
+					.contact-text {
+						justify-content: center;
+					}
+
+					.contact-icon {
+						padding: 0;
+					}
+				}
+
         img{
             width: 125px;
             height: auto;
         }
+
+				h6 {
+					text-align: center;
+					font-size: 1.25em;
+				}
     }
 }
 
